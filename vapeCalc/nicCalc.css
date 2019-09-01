@@ -1,0 +1,109 @@
+body {
+    font-family: 'Lato', sans-serif;
+    color: rgb(245, 119, 42);
+}
+
+.content-form {
+    height: 520px;
+    width: 30%;
+    margin: 5% auto;
+    background: #1038bd;
+    padding: 10px 20px 20px;
+    border-radius: 25px;
+    box-shadow: 5px 5px 10px #808080, 5px 5px 10px #6793c1 inset;
+}
+
+.title {
+    text-align: center;
+}
+
+.nicotine-value {
+    margin-left: 32px;
+    border: none;
+    padding: 20px;
+    border-radius: 20px;
+    }
+
+ .milliliters-value {
+    margin-left: 8px;
+   border: none;
+   padding: 20px;
+   border-radius: 20px;
+}
+
+.price-value {
+    margin-left: 70px;
+border: none;
+padding: 20px;
+border-radius: 20px;
+}
+
+.item-currency {
+     font-weight: 900;
+     padding-right: 20px    
+}
+
+.currency {
+    padding-bottom: 25px;
+}
+
+.items {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+}
+
+.primary-btn {
+    margin: auto;
+    border: none;
+    padding: 30px 45px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    background-color: #ff0000;
+    color: #000000;
+    font-weight: 900;
+    box-shadow: 5px 7px 10px #2b2b2f, 5px 5px 10px #cc8d8d inset;
+}
+
+.item-checkbox{ 
+    padding: 15px;
+    font-weight: 900;
+    display: inline-flex;
+    padding-bottom: 15px;
+}
+
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+
+fieldset {
+    border: none;
+  }
+  
+  .buttons {
+    float: left;
+    border: none;
+    font-weight: 900;
+  }
+  
+  label {
+    float: left;
+    clear: none;
+    display: inline-table;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 15px;
+  }
+  
+  input[type=radio],
+  input.radio {
+    float: left;
+    clear: none;
+    margin: 2px 0 0 2px;
+  }

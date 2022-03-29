@@ -1,0 +1,57 @@
+body {
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    background-color: lightgray;
+}
+
+nav h1 {
+    float: left;
+    font-size: 50px;
+    font-family: Arial Black;
+}
+
+nav li {
+    border: 1px solid black;
+    display: inline-block;
+    text-decoration-style: none;
+    padding: 5px 10px;
+    margin: 10px;
+}
+
+nav section {
+    background-color: black;
+    padding: 5px 10px;
+    float: right;
+    margin: 5px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+}
+
+nav a:hover {
+    color: red;
+}
+
+main section:nth-child(1) {
+    background-image: url('./src/background.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 20rem 10rem;
+
+    text-align: center;
+}
+
+main section:nth-child(1) p {
+    color: red;
+    font-size: 25px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight:bold;
+}
+main section:nth-child(1) h1 {
+    color: white;
+    /* font-size: 25px; */
+    font-family: Arial Black;
+    font-size: 50px;
+}

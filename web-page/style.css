@@ -2,18 +2,31 @@ body {
     font-family: Helvetica, sans-serif;
     font-size: 16px;
     background-color: lightgray;
+    position: relative;
 }
 
-.headers {
+main {
+    width: 100%;
+    height: F auto;
+}
+
+.white-headers {
     font-size: 50px;
     font-family: Arial Black;
     color: white;
+}
+
+.black-headers {
+    font-size: 50px;
+    font-family: Arial Black;
+    color: black;
 }
 
 .textColor {
     color: white;
     font-size: 18px;
 }
+
 
 .buttons {
     font-size: 25px;
@@ -99,8 +112,7 @@ nav a:hover {
 }
 
 .intro-section {
-    margin: -100px 0 0 0;
-    padding: 0 0 0 15%;
+    margin-top: -4%;
 }
 
 .intro p.right {
@@ -131,4 +143,45 @@ nav a:hover {
     color: white;
     float: left;
     opacity: 0.4;
+}
+
+/* team section */
+.team-section img {
+    background-size: 500px;
+    background-position: left;
+    /* padding: 20rem 10rem; */
+}
+
+.buttons.red {
+    font-size: 25px;
+    padding: 15px 40px;
+    border: 2px solid red;
+    background: none;
+    color: red;
+}
+
+.buttons.red:hover {
+    background-color: red;
+    color: white;
+}
+
+.team-section p {
+    display: inline-block;
+    color: black;
+}
+
+.team-section article {
+    display: inline-block;
+    width: 30%;
+}
+
+/* table article */
+table {
+    margin-left: 120px;
+}
+
+th {
+    font-size: 50px;
+    font-family: Arial Black;
+
 }

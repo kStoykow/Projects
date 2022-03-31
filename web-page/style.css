@@ -1,13 +1,10 @@
+/* overall */
 body {
     font-family: Helvetica, sans-serif;
     font-size: 16px;
-    background-color: lightgray;
+    background-color: rgb(236, 236, 236);
     position: relative;
-}
-
-main {
-    width: 100%;
-    height: F auto;
+    width: 99%;
 }
 
 .white-headers {
@@ -27,7 +24,6 @@ main {
     font-size: 18px;
 }
 
-
 .buttons {
     font-size: 25px;
     padding: 15px 40px;
@@ -41,6 +37,23 @@ main {
     color: black;
     opacity: 0.75;
     cursor: pointer;
+}
+
+
+/* container */
+main {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+/* header */
+
+header h2 {
+    float: left;
+    font-family: Arial Black;
+    font-size: 50px;
+    margin: 2rem;
 }
 
 /* navigation */
@@ -71,7 +84,6 @@ nav section {
 
 }
 
-
 nav a {
     text-decoration: none;
     font-size: 25px;
@@ -79,57 +91,69 @@ nav a {
 }
 
 nav a:hover {
-    color: red;
+    color: #e31c25;
 }
 
-/* main section */
-
-.main-section {
+.header-section {
     background-image: url('./src/background.jpg');
     background-size: cover;
     background-position: center;
     padding: 20rem 10rem;
-
     text-align: center;
 }
 
-.main-section p {
-    color: red;
+.header-section p {
+    text-align: center;
+    color: #e31c25;
+    width: 100%;
     font-size: 25px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
 }
 
-/* intro articles */
-
-.intro {
-    width: 450px;
-    display: inline-block;
+.header-section h2 {
+    width: 100%;
     text-align: center;
-    background-color: red;
-    padding: 0 20px 60px 20px;
-    margin: -5px;
+    margin-bottom: 3rem;
 }
 
+/* main */
+
+/* intro articles */
 .intro-section {
-    margin-top: -4%;
+    display: flex;
+    margin: -4rem 0 0 0;
 }
 
-.intro p.right {
-    margin-inline-start: 100px;
+.intro-section article {
+    background-color: #e31c25;
+    display: inline-block;
+    max-width: 50%;
+    padding: 3rem 1rem;
 }
 
-.intro p.left {
-    margin-inline-end: 100px;
-
-}
-
-.right {
+.intro-section:nth-child(1) h2,
+.intro-section:nth-child(1) p {
+    padding: 0 20px 0 60px;
     text-align: right;
 }
 
-.left {
+.intro-section:nth-child(1) button {
+    float: right;
+    margin: 0 20px;
+}
+
+.intro-section>article:nth-child(2) h2,
+.intro-section>article:nth-child(2) p {
+    padding: 0 60px 0 20px;
     text-align: left;
+}
+
+.intro-section>article:nth-child(2) button {
+    float: left;
+}
+
+.intro-section>article:nth-child(2) {
     background-color: black;
 }
 
@@ -139,29 +163,38 @@ nav a:hover {
     opacity: 0.4;
 }
 
-.fa-dumbbell {
+.fa-heart-pulse {
     color: white;
     float: left;
     opacity: 0.4;
 }
 
 /* team section */
-.team-section img {
-    background-size: 500px;
-    background-position: left;
-    /* padding: 20rem 10rem; */
+.team-section {
+    margin: 4rem 0;
 }
 
-.buttons.red {
+.team-section img {
+    max-width: 50%;
+    float: left;
+}
+
+.team-section div {
+    max-width: 50%;
+    float: right;
+}
+
+.team-section .buttons {
     font-size: 25px;
     padding: 15px 40px;
-    border: 2px solid red;
+    border: 2px solid #e31c25;
     background: none;
-    color: red;
+    color: #e31c25;
+    margin: 0 1rem;
 }
 
-.buttons.red:hover {
-    background-color: red;
+.team-section button:hover {
+    background-color: #e31c25;
     color: white;
 }
 
@@ -170,18 +203,72 @@ nav a:hover {
     color: black;
 }
 
-.team-section article {
-    display: inline-block;
-    width: 30%;
-}
-
 /* table article */
 table {
-    margin-left: 120px;
+    display: inline-block;
+    padding: 1rem;
+    position: relative;
 }
 
 th {
-    font-size: 50px;
+    font-size: 110%;
     font-family: Arial Black;
+}
 
+.team-section td {
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.team-section i {
+    color: #e31c25;
+}
+
+
+
+
+
+
+/* article team test */
+
+.team {
+    max-width: 48%;
+    float: right;
+    margin-left: 1rem;
+    margin-bottom: 3rem;
+}
+
+.exp {
+    display: inline-block;
+    max-width: 99%;
+}
+.exp h2{
+    font-size: 2.9rem;
+}
+.team article p,
+.team article h2 {
+    text-align: left;
+}
+
+.team div {
+    display: inline-block;
+    max-width: 99%;
+}
+
+.awards {
+    display: inline-block;
+    max-width: 48%;
+}
+
+.awards h2 {
+    font-size: 1.3rem;
+}
+
+.team button {
+    font-size: 25px;
+    padding: 10px 30px;
+    border: 2px solid #e31c25;
+    background: none;
+    color: #e31c25;
+    margin: 0 1rem;
 }

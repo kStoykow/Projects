@@ -1,4 +1,47 @@
+#scroll-btn {
+    opacity: 0;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    background-color: #ef476f;
+    position: fixed;
+    bottom: 10%;
+    right: 10%;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    font: bold 20px monospace;
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+#scroll-btn.show {
+    opacity: 1;
+    transition: opacity 1s, transform 1s;
+}
+
+#go-to-top {
+    background: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    border: 2px solid #e31c25;
+    color: #e31c25;
+    font-size: 14px;
+    padding: 3px 7px;
+}
+
+#go-to-top .show {
+    opacity: 1;
+    transition: opacity 1s, transform 1s;
+}
+
+#go-to-top:hover {
+    cursor: pointer;
+    background-color: #e31c25;
+    color: white;
+}
+
 /* overall */
+
 body {
     font-family: Helvetica, sans-serif;
     font-size: 16px;
@@ -16,7 +59,7 @@ body {
 .black-headers {
     font-size: 50px;
     font-family: Arial Black;
-    color: black;
+    color: #111;
 }
 
 .textColor {
@@ -34,7 +77,7 @@ body {
 
 .buttons:hover {
     background-color: white;
-    color: black;
+    color: #111;
     opacity: 0.75;
     cursor: pointer;
 }
@@ -54,6 +97,7 @@ header h2 {
     font-family: Arial Black;
     font-size: 50px;
     margin: 2rem;
+    color: #111;
 }
 
 /* navigation */
@@ -70,14 +114,14 @@ nav h2 {
 }
 
 nav li {
-    border: 1px solid black;
+    border: 1px solid #111;
     display: inline-block;
     text-decoration-style: none;
     margin: 6px;
 }
 
 nav section {
-    background-color: black;
+    background-color: #111;
     padding: 5px 10px;
     float: right;
     margin: 25px 10px 0 0;
@@ -154,7 +198,7 @@ nav a:hover {
 }
 
 .intro-section>article:nth-child(2) {
-    background-color: black;
+    background-color: #111;
 }
 
 .fa-drumstick-bite {
@@ -200,7 +244,7 @@ nav a:hover {
 
 .team-section p {
     display: inline-block;
-    color: black;
+    color: #111;
 }
 
 /* table article */
@@ -213,11 +257,13 @@ table {
 th {
     font-size: 110%;
     font-family: Arial Black;
+    color: #111;
 }
 
 .team-section td {
     text-align: center;
     padding: 0 1rem;
+    color: #111;
 }
 
 .team-section i {
@@ -242,9 +288,11 @@ th {
     display: inline-block;
     max-width: 99%;
 }
-.exp h2{
+
+.exp h2 {
     font-size: 2.9rem;
 }
+
 .team article p,
 .team article h2 {
     text-align: left;

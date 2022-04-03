@@ -61,7 +61,7 @@ body {
 
 /* container */
 main {
-    width: 80%;
+    width: 99%;
     height: 100%;
     margin: 0 auto;
 }
@@ -142,6 +142,8 @@ nav a:hover {
 /* intro articles */
 .intro-section {
     display: flex;
+    width: 80%;
+    padding: 0 10%;
     margin: -4rem 0 0 0;
 }
 
@@ -191,11 +193,15 @@ nav a:hover {
 
 /* team section */
 .team-section {
-    margin: 4rem 0;
+    display: flex;
+    width: 80%;
+    padding: 0 10%;
+    margin: 5rem 0;
 }
 
 .team-section img {
     max-width: 50%;
+    height: auto;
     float: left;
 }
 
@@ -223,46 +229,22 @@ nav a:hover {
     color: #111;
 }
 
-/* table article */
-table {
-    display: inline-block;
-    padding: 1rem;
-    position: relative;
-}
 
-th {
-    font-size: 110%;
-    font-family: Arial Black;
-    color: #111;
-}
-
-.team-section td {
-    text-align: center;
-    padding: 0 1rem;
-    color: #111;
-}
-
+/* team info  */
 .team-section i {
     color: #e31c25;
 }
 
-
-
-
-
-
-/* article team test */
-
 .team {
-    max-width: 48%;
+    max-width: 50%;
     float: right;
     margin-left: 1rem;
-    margin-bottom: 3rem;
+    /* margin-bottom: 3rem; */
 }
 
 .exp {
     display: inline-block;
-    max-width: 99%;
+    max-width: 100%;
 }
 
 .exp h2 {
@@ -275,13 +257,13 @@ th {
 }
 
 .team div {
-    display: inline-block;
-    max-width: 99%;
+    display: flex;
+    max-width: 100%;
 }
 
 .awards {
     display: inline-block;
-    max-width: 48%;
+    max-width: 49%;
 }
 
 .awards h2 {
@@ -290,11 +272,64 @@ th {
 
 .team button {
     font-size: 25px;
-    padding: 10px 30px;
+    padding: 10px 20px;
     border: 2px solid #e31c25;
     background: none;
     color: #e31c25;
     opacity: 0.75;
     margin: 0 1rem;
     cursor: pointer;
+}
+
+/* description */
+.description {
+    width: 100%;
+    margin: 3rem auto;
+}
+
+.description ul {
+    display: inline-flex;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.description h2 {
+    color: white;
+    text-align: center;
+}
+
+.description span {
+    margin-left: -10%;
+    margin-right: 10%;
+}
+
+.description p {
+    padding: 0 15%;
+    color: white;
+    max-width: 60%;
+    display: inline-flex;
+    text-align: justify;
+}
+
+.description li {
+    display: inline-block;
+    width: 34%;
+    padding: 2rem 0;
+}
+
+.description .black i {
+    color: #e31c25;
+}
+
+.description .red i {
+    color: #111;
+}
+
+.description .red {
+    background-color: #e31c25;
+}
+
+.description .black {
+    background-color: #111;
 }

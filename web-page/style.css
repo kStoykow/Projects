@@ -333,3 +333,107 @@ nav a:hover {
 .description .black {
     background-color: #111;
 }
+
+/* Benefits */
+.benefits {
+    display: block;
+    width: 80%;
+    padding: 0 10%;
+    margin-top: 5rem;
+}
+
+.benefits .why-us {
+    color: #e31c25;
+    font-family: fantasy;
+    font-size: 22px;
+    text-align: center;
+}
+
+.benefits h2 {
+    font-family: fantasy;
+    text-align: center;
+}
+
+.benefits-group {
+    display: inline-block;
+    width: 46%;
+    margin: 1rem;
+}
+
+.benefits-group img {
+    width: 200px;
+    height: 150px;
+
+}
+
+.benefits-group p {
+    width: 50%;
+    display: flex;
+    font-family: 'Georgia';
+    font-size: 1.2rem;
+}
+
+.benefits-group>div {
+    margin-top: 1rem;
+    float: left;
+    padding: 0 1.2rem;
+}
+
+.benefits-group>div>i {
+    padding: 0.7rem;
+    margin-left: -3rem;
+    margin-top: -0.7rem;
+    float: right;
+    position: relative;
+    color: white;
+    background-color: #e31c25;
+}
+
+/* subscribe */
+
+.subscribe {
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.8)), url('./src/newsletter.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 6rem;
+    text-align: center;
+    margin: 4rem 0;
+}
+.subscribe h2{
+    margin: 1rem 0;
+}
+.subscribe p {
+    color: white;
+    font-family: Georgia;
+    font-size: 1.5rem;
+    margin: 2rem 0;
+}
+
+.subscribe form {
+    display: inline-flex;
+}
+
+.subscribe input {
+    width: 300px;
+    height: 40px;
+    font-size: 25px;
+    font-family: arial;
+    padding-left: 20px;
+    box-sizing: border-box;
+    margin: 1rem 0;
+}
+
+.subscribe button {
+    font-family: Georgia;
+    font-size: 20px;
+    background-color: #e31c25;
+    color: white;
+    border: 1px solid #e31c25;
+    padding: 8px 20px;
+    margin: 1rem 0;
+}
+
+.subscribe button:hover {
+    background-color: #b8282f;
+    border: 1px solid #b8282f;
+}

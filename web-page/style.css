@@ -399,9 +399,11 @@ nav a:hover {
     text-align: center;
     margin: 4rem 0;
 }
-.subscribe h2{
+
+.subscribe h2 {
     margin: 1rem 0;
 }
+
 .subscribe p {
     color: white;
     font-family: Georgia;
@@ -436,4 +438,65 @@ nav a:hover {
 .subscribe button:hover {
     background-color: #b8282f;
     border: 1px solid #b8282f;
+}
+
+
+/* Classes */
+.classes {
+    display: block;
+    width: 80%;
+    padding: 0 10%;
+    margin-top: 5rem;
+    text-align: center;
+}
+
+.classes p {
+    color: #e31c25;
+    font-family: fantasy;
+    font-size: 22px;
+}
+
+.classes nav a {
+    color: #e31c25;
+    padding: 8px 14px;
+}
+
+.classes nav a:hover {
+    color: white;
+    background-color: #e31c25;
+}
+
+.classes table {
+    width: 100%;
+    margin: 2rem 0;
+    box-sizing: border-box;
+    border: 1px solid #D6D6D6;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.classes table thead tr {
+    color: #CCCCCC;
+    background-color: #111;
+}
+
+.classes th {
+    border: 2px solid #D6D6D6;
+    font-weight: 600;
+}
+
+.classes th, .classes table td {
+    border: 1px solid #D6D6D6;
+    padding: 20px 15px;
+}
+
+.classes td {
+    border-collapse: collapse;
+    height: 45px;
+}
+
+.classes td:nth-child(1) {
+    background-color: #111;
+    color: white;
+    font-size: 1rem;
 }

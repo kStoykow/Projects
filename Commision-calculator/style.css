@@ -1,0 +1,53 @@
+#form {
+    width: 20%;
+    margin: 5rem;
+    padding: 5% 10%;
+    display: block;
+    background-color: rgb(170, 180, 207);
+    border-radius: 10%;
+}
+
+#form #input {
+    display: inline-block;
+    width: 100%;
+    margin: 5px;
+}
+
+#form #input label {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 5px;
+}
+
+#form #output-section {
+    display: inline-block;
+    width: 100%;
+    margin: 5px;
+}
+
+#form #output-section label {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 5px;
+}
+
+#form>button {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1rem;
+    padding: 10px;
+    background-color: lightgrey;
+    border-radius: 10px;
+    border: 1px solid rgb(175, 173, 182);
+}
+
+#form>button:hover {
+    cursor: pointer;
+    padding: 10px;
+    background-color: rgb(135, 133, 150);
+}
+
+#form li {
+    text-decoration: none;
+}
+
+#form div {
+    background-color: white;
+}

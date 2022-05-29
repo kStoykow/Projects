@@ -14,11 +14,18 @@ function main() {
     Array.from(hiddenElems).map(elem => {
         elem.addEventListener('mouseenter', function show(e) {
             e.target.firstElementChild.firstElementChild.classList.remove('hidden');
+            e.target.firstElementChild.style.filter = 'brightness(80%)';
         });
         elem.addEventListener('mouseleave', function show(e) {
             e.target.firstElementChild.firstElementChild.classList.add('hidden');
+            e.target.firstElementChild.style.filter = 'brightness(100%)';
         });
-    })
+    });
 
+
+    const newsletterBtn = document.getElementById('newsletter-btn');
+    newsletterBtn.addEventListener('click', function onSubmit(e) {
+        e.preventDefault();
+    });
 }
 document.addEventListener('DOMContentLoaded', main);

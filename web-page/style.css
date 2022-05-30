@@ -557,7 +557,7 @@ nav a:hover {
     margin: 7rem 0 1rem 2rem;
 }
 
-.bmi-inputs input {
+.bmi-inputs .inputs {
     margin-top: 0.5rem;
     height: 30px;
     width: 30%;
@@ -569,7 +569,7 @@ nav a:hover {
 #bmi-gender {
     margin-top: 0.5rem;
     height: 36px;
-    width: 31.5%;
+    width: 31.2%;
     font-size: 20px;
     display: inline-flex;
     border: 2px solid #CCCCCC;
@@ -581,7 +581,7 @@ nav a:hover {
 
 #bmi-calc {
     margin: 0.5rem 0 0 2rem;
-    width: 64%;
+    width: 63%;
     padding: 10px;
     background-color: #343a40;
     color: #CCCCCC;

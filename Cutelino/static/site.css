@@ -145,11 +145,13 @@ button:hover {
 
 /*  */
 
-a {
+p a {
     text-decoration: underline;
-    color: white;
+    color: Black;
     text-transform: uppercase;
 }
+
+
 
 /* inputs */
 form label {

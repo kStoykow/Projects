@@ -1,0 +1,136 @@
+body {
+    width: 980px;
+    margin: 0 auto;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+header {
+    list-style-type: none;
+    margin: auto;
+    padding: 0;
+    background-color: #237e49;
+}
+
+.navigation {
+    margin: 0;
+}
+
+.navigation li {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+.navigation li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+    margin: 0 1em;
+}
+
+.navigation li a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+main {
+    margin: 0 4em;
+    border-radius: 15px;
+    padding: 2em;
+}
+
+div.container {
+    display: block;
+}
+
+/* buttons */
+
+button, main a.btn {
+    border: none;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    width: 35%;
+    margin: 12px;
+    border-radius: 4px;
+    background: #607588;
+    color: white;
+}
+
+button:hover {
+    background-color: #0B2133;
+    color: white;
+    cursor: pointer;
+}
+
+/*  */
+
+a {
+    text-decoration: underline;
+    color: white;
+    text-transform: uppercase;
+}
+
+/* inputs */
+form label {
+    background: #607588;
+    color: white;
+    padding: 12px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+input[type=text],
+input[type=number],
+select,
+textarea {
+    width: 100%;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    padding: 12px 20px 12px 12px;
+    border-radius: 0 4px 4px 4px;
+    margin: 8px 0 2em;
+}
+
+input.difficulty {
+    width: 20%;
+}
+
+input.search {
+    width: 50%;
+}
+
+input[type=submit] {
+    background-color: #545775;
+    border: none;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    width: 50%;
+    margin: 5px 5px 5px 25%;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 4px;
+}
+
+input[type=submit]:hover {
+    background-color: #718F94;
+    cursor: pointer;
+}
+
+/*  */
+
+footer {
+    background: #237e49;
+    padding: 1em;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}

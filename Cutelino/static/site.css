@@ -61,9 +61,13 @@ div.category, div.product {
     display: inline-block;
     border: 1px solid #2b415433;
     background: white;
-    width: 23%;
+    width: 22%;
     vertical-align: top;
     margin: 20px 10px;
+}
+
+.category img{
+    width: 100%;
 }
 
 div.category:hover p.name, div.product:hover p.name {
@@ -198,6 +202,10 @@ input.search {
 
 #category {
     width: 30%;
+}
+
+select#category {
+    width: 50%;
 }
 
 form.search {

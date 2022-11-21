@@ -10,11 +10,11 @@ async function getAllCategories() {
 }
 
 async function getCategoryById(id) {
-    return Category.findById(id).lean();
+    return Category.findById(id).populate('products').lean();
 }
 
 module.exports = {
     getAllCategories,
     getCategoryById,
-    createCategory
+    createCategory,
 }

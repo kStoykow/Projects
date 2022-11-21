@@ -1,5 +1,5 @@
 const { createCategory, getAllCategories } = require('../services/category');
-const { getAllProducts, createProduct } = require('../services/product');
+const { getAllProducts, createProduct, getProductById } = require('../services/product');
 
 const create = require('express').Router();
 
@@ -22,8 +22,14 @@ create.post('/category', async (req, res) => {
 
 
 
-
-create.get('/product', (req, res) => res.render('createProduct', { title: 'Create Product' }));
+create.get('/product', async (req, res) => {
+    try {
+        const category = await getAllCategories();
+        res.render('createProduct', { title: 'Create Product', category })
+    } catch (error) {
+        //make 404 page and render
+    }
+});
 
 create.post('/product', async (req, res) => {
     const newProduct = {
@@ -32,13 +38,16 @@ create.post('/product', async (req, res) => {
         price: Number(req.body.price),
         size: Number(req.body.size),
         color: req.body.color,
-        imageUrl: req.body.imageUrl
+        imageUrl: req.body.imageUrl,
     }
 
+    const categoryId = req.body.category;
+
     try {
-        const product = await createProduct(newProduct);
+        const product = await createProduct(newProduct, categoryId);
         res.redirect('/details/' + product._id);
     } catch (error) {
+        console.log(error);
         //render 404        
     }
 });

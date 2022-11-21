@@ -1,9 +1,11 @@
-<img class="product" src="imageUrl">
-<div class="details">
-    <p><span>name</span></p>
-    <p><span>Description:</span> description</p>
-    <p><span>Price:</span> price</p>
-    <p><span>Size:</span> Size</p>
-    <p><span>Color:</span> Color</p>
-    <a class="btn" href="/">Back</a>
+<div class="category">
+    <img class="product" src="{{imageUrl}}">
+    <p><span>{{name}}</span></p>
+    <p><span>Price:</span> {{price}}$</p>
+    {{#if size}}
+    <p><span>Size:</span> {{size}}</p>
+    {{/if}}
+    <p><span>Description:</span> {{description}}</p>
+    <p><span>Color:</span> {{color}}</p>
+    <a class="btn" href="/details/{{_id}}">Details</a>
 </div>

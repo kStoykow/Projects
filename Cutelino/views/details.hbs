@@ -1,0 +1,13 @@
+{{#with product}}
+<div class="details">
+    <p><span>{{name}} details</span></p>
+    <img class="product" src="{{imageUrl}}">
+    <p><span>Description:</span> {{description}}</p>
+    <p><span>Price:</span> {{price}}</p>
+    {{#if size}}
+    <p><span>Size:</span> {{size}}</p>
+    {{/if}}
+    <p><span>Color:</span> {{color}}</p>
+    <a class="btn" href="/">Back</a>
+</div>
+{{/with}}

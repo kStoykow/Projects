@@ -10,11 +10,9 @@
 </form>
 
 {{#if categories}}
-<div class="category">
-    {{#each categories}}
-    {{>categoryCard}}
-    {{/each}}
-</div>
+{{#each categories}}
+{{>categoryCard}}
+{{/each}}
 {{else}}
 <p>No Categories yet. <a href="/create/category">Add</a> the first one.</p>
 {{/if}}

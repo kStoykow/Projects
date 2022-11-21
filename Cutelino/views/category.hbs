@@ -1,13 +1,9 @@
-<img class="category" src="imageUrl">
 <div class="details">
-    <p><span>name</span></p>
-    <p><span>Description:</span> description</p>
+    <img class="category" src="{{category.imageUrl}}" alt="img">
+    <p class="name">{{category.name}}</p>
     <a class="btn" href="/">Back</a>
 </div>
 
-<div class="category">
-    <img class="product" src="img" alt="img">
-    <p class="name">name</p>
-    <p>add id to link</p>
-    <a class="btn" href="/category">Details</a>
-</div>
+{{#each product}}
+{{>productCard}}
+{{/each}}

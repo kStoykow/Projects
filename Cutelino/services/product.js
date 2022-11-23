@@ -25,8 +25,31 @@ async function getSimilar(product) {
         .limit(4).lean();
 }
 
+async function getAllColors() {
+    return Product.find({}).select('color').lean();
+}
+
+async function searchProduct(search, category, color) {
+    color = color == 'All' ? '' : color;
+
+    if (category != 'All') {
+        return Product.find({}).populate('category')
+            .where('category').equals(category)
+            .where({ 'color': { '$regex': color, '$options': 'i' } })
+            .where({ 'name': { '$regex': search, '$options': 'i' } }).lean();
+    }
+
+    return Product.find({})
+        .where({ 'color': { '$regex': color, '$options': 'i' } })
+        .where({ 'name': { '$regex': search, '$options': 'i' } }).lean();
+}
+
+
+
 module.exports = {
     createProduct,
     getProductById,
-    getSimilar
+    getSimilar,
+    getAllColors,
+    searchProduct
 }

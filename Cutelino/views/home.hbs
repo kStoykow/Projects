@@ -1,13 +1,48 @@
 <h1>Browse products</h1>
 
 <form action="/" method="/get" class="search">
+    <label for="search">Name:</label>
+    {{#if query}}
+    <input type="text" class="search" name="search" placeholder="search" value="{{query.search}}">
+    {{else}}
     <input type="text" class="search" name="search" placeholder="search" value="">
-    <label for="category">Category:</label>
-    <select id="category" name="category">
-        <option value="All">All</option>
-    </select>
+    {{/if}}
+    <div class="search">
+        <label for="category">Category:</label>
+        <select id="category" name="category">
+            {{#if query}}
+            <option value="{{query.category}}">{{query.category}}</option>
+            {{/if}}
+            <option value="All">All</option>
+            {{#each categories}}
+            {{>categoryOptions}}
+            {{/each}}
+        </select>
+    </div>
+
+    <div class="search">
+        <label for="color">Color:</label>
+        <select id="color" name="color">
+            {{#if query}}
+            <option value="{{query.color}}">{{query.color}}</option>
+            {{/if}}
+            <option value="All">All</option>
+            {{#each colors}}
+            {{>colorOptions}}
+            {{/each}}
+        </select>
+    </div>
     <input type="submit" value="search">
 </form>
+{{#if error}}
+<h2 class="error"><i>{{error}}</i></h2>
+{{/if}}
+
+{{#if found}}
+{{#each found}}
+{{>productCard}}
+{{/each}}
+{{else}}
 
 {{#if categories}}
 {{#each categories}}
@@ -15,4 +50,5 @@
 {{/each}}
 {{else}}
 <p>No Categories yet. <a href="/create/category">Add</a> the first one.</p>
+{{/if}}
 {{/if}}

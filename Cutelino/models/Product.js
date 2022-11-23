@@ -10,7 +10,8 @@ const productSchema = new Schema({
         type: String,
         required: true,
         validate: {
-            validator: httpValidator
+            validator: httpValidator,
+            message: 'must start with http/s'
         }
     },
     category: { type: [Types.ObjectId], default: [], ref: 'Category' }

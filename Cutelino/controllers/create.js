@@ -16,7 +16,7 @@ create.post('/category', async (req, res) => {
         const category = await createCategory(newCategory);
         res.redirect('/category/' + category._id);
     } catch (error) {
-        //make 404 page and render
+        res.render('404', { title: 'Create Category', error: error.message })
     }
 });
 
@@ -27,7 +27,7 @@ create.get('/product', async (req, res) => {
         const category = await getAllCategories();
         res.render('createProduct', { title: 'Create Product', category })
     } catch (error) {
-        //make 404 page and render
+        res.render('404', { title: 'Create Product' })
     }
 });
 
@@ -37,7 +37,7 @@ create.post('/product', async (req, res) => {
         description: req.body.description,
         price: Number(req.body.price),
         size: Number(req.body.size),
-        color: req.body.color,
+        color: req.body.color.toLocaleLowerCase(),
         imageUrl: req.body.imageUrl,
     }
 
@@ -47,8 +47,7 @@ create.post('/product', async (req, res) => {
         const product = await createProduct(newProduct, categoryId);
         res.redirect('/details/' + product._id);
     } catch (error) {
-        console.log(error);
-        //render 404        
+        res.render('404', { title: 'Create Product', error: error.message })
     }
 });
 

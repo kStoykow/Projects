@@ -9,7 +9,7 @@ category.get('/:id', async (req, res) => {
         const products = category.products;
         res.render('category', { title: category.name, category, products });
     } catch (error) {
-        //render 404
+        res.render('404', { title: 'Category not found' });
     }
 
 });

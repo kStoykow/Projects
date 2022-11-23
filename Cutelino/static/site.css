@@ -57,6 +57,11 @@ img.category, img.product {
     /* width: 100%; */
 }
 
+.error {
+    text-align: center;
+
+}
+
 div.category, div.product {
     display: inline-block;
     border: 1px solid #2b415433;
@@ -66,7 +71,7 @@ div.category, div.product {
     margin: 20px 10px;
 }
 
-.category img{
+.category img {
     width: 100%;
 }
 
@@ -204,8 +209,8 @@ input.search {
     width: 30%;
 }
 
-select#category {
-    width: 50%;
+select#category, select#color {
+    width: 200px;
 }
 
 form.search {

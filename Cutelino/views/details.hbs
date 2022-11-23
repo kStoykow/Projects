@@ -3,15 +3,17 @@
     <p><span>{{name}} details</span></p>
     <img class="product" src="{{imageUrl}}">
     <p><span>Description:</span> {{description}}</p>
-    <p><span>Price:</span> {{price}}</p>
+    <p><span>Price:</span> {{price}}$</p>
     {{#if size}}
     <p><span>Size:</span> {{size}}</p>
     {{/if}}
     <p><span>Color:</span> {{color}}</p>
-    <a class="btn" href="/category/{{category}}">Back</a>
+    <a class="btn" href="/category/{{category}}">Back to category</a>
 </div>
 {{/with}}
 
+
+<h2>Similar products</h2>
 {{#each similar}}
 {{>productCard}}
 {{/each}}

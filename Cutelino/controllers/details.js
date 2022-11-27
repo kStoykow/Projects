@@ -11,7 +11,7 @@ details.get('/:id', async (req, res) => {
         if (product.size == 0) {
             delete product.size;
         }
-        
+
         res.render('details', { title: product.name, product, similar });
 
     } catch (error) {

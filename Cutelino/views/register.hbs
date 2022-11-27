@@ -1,5 +1,8 @@
 <div class="form">
     <h1>Register</h1>
+    {{#if error}}
+    <p> <span class="error">{{error}}</span> </p>
+    {{/if}}
     <form action='/user/register' method="post">
         <label for="name">Username</label>
         <input type="text" id="username" name="username">

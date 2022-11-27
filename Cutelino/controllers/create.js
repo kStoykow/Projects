@@ -23,7 +23,7 @@ create.post('/category', async (req, res) => {
 
 
 create.get('/product', async (req, res) => {
-    try {
+      try {
         const category = await getAllCategories();
         res.render('createProduct', { title: 'Create Product', category })
     } catch (error) {

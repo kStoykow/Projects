@@ -7,6 +7,8 @@ home.get('/', async (req, res) => {
     const categories = await getAllCategories();
     const colors = await getAllColors();
 
+    console.log(req.user);
+
     if (req.query.search != undefined) {
         const search = req.query.search;
         const category = req.query.category;

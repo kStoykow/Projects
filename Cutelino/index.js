@@ -6,6 +6,8 @@ const mongoose = require('mongoose');
 const connectionStr = 'mongodb://127.0.0.1:27017/babyshop';
 
 const routes = require('./controllers/routes');
+const cookieParser = require('cookie-parser');
+const auth = require('./middlewares/auth');
 
 
 start();
@@ -24,6 +26,8 @@ async function start() {
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use('/static', express.static('static'));
 
+    app.use(cookieParser());
+    app.use(auth());
     routes(app);
 
     app.listen(3000, () => 'Server listen at port 3000...');

@@ -1,0 +1,22 @@
+<div class="form">
+    <h1>Delete product</h1>
+    <form action='/delete' method="post">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name">
+        <label for="name">Description</label>
+        <textarea id="name" name="description"></textarea>
+        <label for="price">Price</label>
+        <input type="number" id="price" step="0.01" name="price">
+        <label for="size">Size</label>
+        <input type="number" id="size" name="size">
+        <label for="color">Color</label>
+        <input type="text" id="color" name="color">
+        <label for="image">Image Url</label>
+        <input type="text" id="image" name="imageUrl">
+        <label for="category">Category</label>
+        <select id="category" name="category">
+            <option value="{{this._id}}">{{this.name}}</option>
+        </select>
+        <input type="submit" value="Delete">
+    </form>
+</div>

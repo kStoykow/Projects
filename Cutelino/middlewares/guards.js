@@ -16,7 +16,7 @@ function isOwner() {
         try {
             const product = await getProductById(req.path.slice(1));
             const isOwner = req.user._id == product.creatorId;
-
+            
             if (isOwner) {
                 res.locals.isOwner = true;
                 res.locals.title = product.name;

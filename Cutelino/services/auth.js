@@ -14,7 +14,7 @@ async function register(username, password) {
 
     const user = await User.create({ username, password: hashedPass });
     const payload = { _id: user._id, username: user.username };
-    const token = jwt.sign(payload, secretKey, { expiresIn: '30min' });
+    const token = jwt.sign(payload, secretKey, { expiresIn: '10min' });
     return token;
 }
 
@@ -26,7 +26,7 @@ async function login(username, password) {
     }
 
     const payload = { _id: user._id, username: user.username };
-    const token = jwt.sign(payload, secretKey, { expiresIn: '30min' });
+    const token = jwt.sign(payload, secretKey, { expiresIn: '10min' });
     return token;
 }
 

@@ -3,22 +3,22 @@
     {{#if error}}
     <p> <span class="error">{{error}}</span> </p>
     {{/if}}
-    <form action='/delete' method="post">
+    <form action='/delete/{{product._id}}' method="post">
         <label for="name">Name</label>
-        <input type="text" id="name" name="name">
+        <input type="text" id="name" name="name" value="{{product.name}}" disabled="true">
         <label for="name">Description</label>
-        <textarea id="name" name="description"></textarea>
+        <textarea id="name" name="description" disabled="true">{{product.description}}</textarea>
         <label for="price">Price</label>
-        <input type="number" id="price" step="0.01" name="price">
+        <input type="number" id="price" step="0.01" name="price" value="{{product.price}}" disabled="true">
         <label for="size">Size</label>
-        <input type="number" id="size" name="size">
+        <input type="number" id="size" name="size" value="{{product.size}}" disabled="true">
         <label for="color">Color</label>
-        <input type="text" id="color" name="color">
+        <input type="text" id="color" name="color" value="{{product.color}}" disabled="true">
         <label for="image">Image Url</label>
-        <input type="text" id="image" name="imageUrl">
+        <input type="text" id="image" name="imageUrl" value="{{product.imageUrl}}" disabled="true">
         <label for="category">Category</label>
-        <select id="category" name="category">
-            <option value="{{this._id}}">{{this.name}}</option>
+        <select id="category" name="category" disabled="true">
+            <option value="{{product.category}}">{{product.category}}</option>
         </select>
         <input type="submit" value="Delete">
     </form>

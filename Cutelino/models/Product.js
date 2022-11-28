@@ -14,7 +14,8 @@ const productSchema = new Schema({
             message: 'must start with http/s'
         }
     },
-    category: { type: [Types.ObjectId], default: [], ref: 'Category' }
+    category: { type: [Types.ObjectId], default: [], ref: 'Category' },
+    creatorId: { type: String, required: true }
 });
 
 

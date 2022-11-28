@@ -31,7 +31,6 @@ edit.post('/:id', async (req, res) => {
         res.redirect('/details/' + res.locals.product._id);
     } catch (error) {
         res.render('404');
-
     }
 });
 

@@ -50,12 +50,14 @@ async function searchProduct(search, category, color) {
 
 async function updateProduct(id, data) {
     const product = await Product.findById(id);
-    console.log(product, ' product');
-    console.log(data, ' data');
     for (const key in data) {
         product[key] = data[key];
     }
     product.save();
+}
+
+async function deleteProduct(id) {
+    await Product.deleteOne({ _id: id });
 }
 
 module.exports = {
@@ -64,5 +66,6 @@ module.exports = {
     getSimilar,
     getAllColors,
     searchProduct,
-    updateProduct
+    updateProduct,
+    deleteProduct
 }

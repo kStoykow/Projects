@@ -23,7 +23,7 @@ create.post('/category', async (req, res) => {
 
 
 create.get('/product', async (req, res) => {
-      try {
+    try {
         const category = await getAllCategories();
         res.render('createProduct', { title: 'Create Product', category })
     } catch (error) {
@@ -39,6 +39,7 @@ create.post('/product', async (req, res) => {
         size: Number(req.body.size),
         color: req.body.color.toLocaleLowerCase(),
         imageUrl: req.body.imageUrl,
+        creatorId: req.user._id
     }
 
     const categoryId = req.body.category;

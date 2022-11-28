@@ -11,8 +11,9 @@ details.get('/:id', async (req, res) => {
         if (product.size == 0) {
             delete product.size;
         }
+        const isOwner = req.user?._id == product.creatorId;
 
-        res.render('details', { title: product.name, product, similar });
+        res.render('details', { title: product.name, isOwner, product, similar });
 
     } catch (error) {
         res.render('404', { title: 'Details', error: 'There is no product with such ID.' })

@@ -1,5 +1,8 @@
 <div class="about">
     <h1>About us</h1>
+    {{#if error}}
+    <p> <span class="error">{{error}}</span> </p>
+    {{/if}}
     <p>
         <i>"Cutelino"</i> is a place, where you can browse baby clothes, toys, accessories and everything you'd need for
         your baby or you can sell your own brand and products. This application was created as an exercise for Express,

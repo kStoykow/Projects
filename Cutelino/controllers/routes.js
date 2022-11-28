@@ -8,14 +8,15 @@ const user = require('./user');
 const deleteController = require('./delete');
 const edit = require('./edit');
 
+const { isUser, isOwner } = require('../middlewares/guards');
 
 module.exports = (app) => {
     app.use('/', home);
     app.use('/about', about);
     app.use('/user', user);
-    app.use('/edit', edit);
-    app.use('/delete', deleteController);
-    app.use('/create', create);
+    app.use('/edit', isUser(), isOwner(), edit);
+    app.use('/delete', isUser(), isOwner(), deleteController);
+    app.use('/create', isUser(), create);
     app.use('/category', category);
     app.use('/details', details);
     app.use('/', defaultController);

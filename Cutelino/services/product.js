@@ -15,7 +15,11 @@ async function createProduct(productData, categoryId) {
 
 
 async function getProductById(id) {
-    return Product.findOne({}).where('_id').equals(Types.ObjectId(id)).lean();
+    try {
+        return Product.findOne({}).where('_id').equals(Types.ObjectId(id)).lean();
+    } catch (error) {
+        throw new Error('There is no product with such id.');
+    }
 }
 
 async function getSimilar(product) {
@@ -44,12 +48,21 @@ async function searchProduct(search, category, color) {
         .where({ 'name': { '$regex': search, '$options': 'i' } }).lean();
 }
 
-
+async function updateProduct(id, data) {
+    const product = await Product.findById(id);
+    console.log(product, ' product');
+    console.log(data, ' data');
+    for (const key in data) {
+        product[key] = data[key];
+    }
+    product.save();
+}
 
 module.exports = {
     createProduct,
     getProductById,
     getSimilar,
     getAllColors,
-    searchProduct
+    searchProduct,
+    updateProduct
 }

@@ -7,11 +7,13 @@ module.exports = () => (req, res, next) => {
         try {
             const data = jwt.verify(token, secretKey);
             req.user = data;
+            res.locals.user = data;
         } catch (error) {
             res.clearCookie('user');
             return res.redirect('/user/login');
         }
     }
+
 
     next();
 }

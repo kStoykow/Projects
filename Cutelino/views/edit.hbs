@@ -1,21 +1,26 @@
 <div class="form">
     <h1>Edit product</h1>
-    <form action='/edit' method="post">
+    {{#if error}}
+    <p> <span class="error">{{error}}</span> </p>
+    {{/if}}
+    <form action='/edit/{{product._id}}' method="post">
         <label for="name">Name</label>
-        <input type="text" id="name" name="name">
+        <input type="text" id="name" name="name" value="{{product.name}}">
         <label for="name">Description</label>
-        <textarea id="name" name="description"></textarea>
+        <textarea id="name" name="description">{{product.description}}</textarea>
         <label for="price">Price</label>
-        <input type="number" id="price" step="0.01" name="price">
+        <input type="number" id="price" step="0.01" name="price" value="{{product.price}}">
         <label for="size">Size</label>
-        <input type="number" id="size" name="size">
+        <input type="number" id="size" name="size" value="{{product.size}}">
         <label for="color">Color</label>
-        <input type="text" id="color" name="color">
+        <input type="text" id="color" name="color" value="{{product.color}}">
         <label for="image">Image Url</label>
-        <input type="text" id="image" name="imageUrl">
+        <input type="text" id="image" name="imageUrl" value="{{product.imageUrl}}">
         <label for="category">Category</label>
         <select id="category" name="category">
-            <option value="{{this._id}}">{{this.name}}</option>
+            {{#each category}}
+            {{>categoryOptions}}
+            {{/each}}
         </select>
         <input type="submit" value="Edit">
     </form>

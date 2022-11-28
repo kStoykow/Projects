@@ -1,18 +1,21 @@
-{{#with product}}
 <div class="details">
-    <p><span>{{name}} details</span></p>
-    <img class="product" src="{{imageUrl}}">
-    <p><span>Description:</span> {{description}}</p>
-    <p><span>Price:</span> {{price}}$</p>
-    {{#if size}}
-    <p><span>Size:</span> {{size}}</p>
+    {{#if error}}
+    <p> <span class="error">{{error}}</span> </p>
     {{/if}}
-    <p><span>Color:</span> {{color}}</p>
-    <a class="btn" href="/category/{{category}}">Back to category</a>
-    <a class="btn" href="/edit">Edit</a>
-    <a class="btn" href="/delete">Delete</a>
+    <p><span>{{name}} details</span></p>
+    <img class="product" src="{{product.imageUrl}}">
+    <p><span>Description:</span> {{product.description}}</p>
+    <p><span>Price:</span> {{product.price}}$</p>
+    {{#if size}}
+    <p><span>Size:</span> {{product.size}}</p>
+    {{/if}}
+    <p><span>Color:</span> {{product.color}}</p>
+    <a class="btn" href="/category/{{product.category}}">Back to category</a>
+    {{#if isOwner}}
+    <a class="btn" href="/edit/{{product._id}}">Edit</a>
+    <a class="btn" href="/delete/{{product._id}}">Delete</a>
+    {{/if}}
 </div>
-{{/with}}
 
 
 <h2>Similar products</h2>

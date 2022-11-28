@@ -1,5 +1,7 @@
 <h1>Browse products</h1>
-
+{{#if error}}
+    <p> <span class="error">{{error}}</span> </p>
+    {{/if}}
 <form action="/" method="/get" class="search">
     <label for="search">Name:</label>
     {{#if query}}

@@ -1,4 +1,7 @@
 <div class="details">
+    {{#if error}}
+    <p> <span class="error">{{error}}</span> </p>
+    {{/if}}
     <img class="category" src="{{category.imageUrl}}" alt="img">
     <p class="name">{{category.name}}</p>
     <a class="btn" href="/">Back</a>

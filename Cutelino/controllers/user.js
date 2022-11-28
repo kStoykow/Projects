@@ -1,5 +1,4 @@
 const user = require('express').Router();
-const jwt = require('jsonwebtoken');
 
 const { register, login } = require('../services/auth');
 
@@ -39,7 +38,8 @@ user.post('/register', async (req, res) => {
             throw new Error('Passwords must match.');
         }
 
-        await register(req.body.username, req.body.password);
+        const token = await register(req.body.username, req.body.password);
+        res.cookie('user', token);
 
 
         res.redirect('/');

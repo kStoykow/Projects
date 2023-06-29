@@ -1,2 +1,0 @@
-
-Link: http://kstoykow.ml/

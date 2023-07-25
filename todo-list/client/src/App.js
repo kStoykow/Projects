@@ -31,9 +31,9 @@ function App() {
 
 					<div className="table-wrapper">
 
-						{/* <Spinner /> */}
+						{todos ? <Table todos={todos} /> : <Spinner />}
 
-						<Table todos={todos} />
+
 					</div>
 				</section>
 			</main>

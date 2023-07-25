@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Spinner } from "./components/Spinner";
@@ -5,7 +7,15 @@ import { Table } from "./components/Table";
 
 function App() {
 
-	
+	const [todos, setTodos] = useState([]);
+
+	useEffect(() => {
+		fetch('http://localhost:3030/jsonstore/todos')
+			.then(res => res.json())
+			.then(data => Object.values(data))
+			.then(todos => setTodos(todos));
+	}, []);
+
 	return (
 		<>
 			<Header />
@@ -23,8 +33,7 @@ function App() {
 
 						{/* <Spinner /> */}
 
-						{/* <!-- Todo list table --> */}
-						<Table />
+						<Table todos={todos} />
 					</div>
 				</section>
 			</main>

@@ -2,6 +2,7 @@ import { Todo } from "./Todo";
 
 export const Table = ({
     todos,
+    onChangeStatus
 }) => {
     return (
         <table className="table">
@@ -14,7 +15,7 @@ export const Table = ({
             </thead>
 
             <tbody>
-                {todos.map(e => <Todo key={e._id} {...e} />)}
+                {todos.map(e => <Todo key={e._id} {...e} onChangeStatus={onChangeStatus} />)}
             </tbody>
         </table>
     );

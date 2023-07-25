@@ -16,6 +16,11 @@ function App() {
 			.then(todos => setTodos(todos));
 	}, []);
 
+
+	function onChangeStatus(id) {
+		setTodos(todosState => todosState.map(e => e._id === id ? { ...e, isComplete: !e.isComplete } : e))
+	}
+
 	return (
 		<>
 			<Header />
@@ -31,7 +36,7 @@ function App() {
 
 					<div className="table-wrapper">
 
-						{todos ? <Table todos={todos} /> : <Spinner />}
+						{todos ? <Table todos={todos} onChangeStatus={onChangeStatus} /> : <Spinner />}
 
 
 					</div>

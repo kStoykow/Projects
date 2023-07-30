@@ -1,0 +1,1 @@
+export const SpinnerIcon = () => <div className="spinner"></div>;

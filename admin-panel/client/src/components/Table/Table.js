@@ -17,29 +17,10 @@ export const Table = () => {
             .then(users => setUsers(users));
     }, []);
 
-    const addUserHandler = () => {
-        fetch(baseUrl, {
-            method: 'post',
-            body: JSON.stringify({
-                firstName: "string",
-                lastName: "string",
-                email: "string",
-                imageUrl: "string",
-                phoneNumber: "string",
-                address: {
-                    country: "string",
-                    city: "string",
-                    street: "string",
-                    streetNumber: "number",
-                }
-            })
-            //to finish
-        });
-    }
+
 
     const openSaveUserModalHandler = () => {
         setIsCreateModal(true);
-        console.log(isCreateModal);
     }
 
 

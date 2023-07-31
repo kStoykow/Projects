@@ -1,6 +1,38 @@
+
+const baseUrl = 'http://localhost:3005/api/users';
+
 export const UserSaveForm = ({
     setIsCreateModal
 }) => {
+
+    const addUserHandler = (e) => {
+        e.preventDefault();
+        const body = {
+            firstName: "Ivan",
+            lastName: "Aasdd",
+            email: "string@qcfvwe.qweqw",
+            imageUrl: "https://qwewq/q.weq",
+            phoneNumber: "0123456789",
+            address: {
+                country: "stssa",
+                city: "qweqqq",
+                street: "qwmain",
+                streetNumber: 5,
+            }
+        };
+
+
+        console.log(body);
+
+        fetch(baseUrl, {
+            method: 'post',
+            body: JSON.stringify(body)
+        })
+            .then(res => res.json())
+            .then(console.log)
+
+        //to finish
+    }
 
     const closeSaveModalUser = () => {
         setIsCreateModal(false);
@@ -22,7 +54,7 @@ export const UserSaveForm = ({
                             </svg>
                         </button>
                     </header>
-                    <form>
+                    <form onSubmit={(e) => addUserHandler(e)}>
                         <div className="form-row">
                             <div className="form-group">
                                 <label htmlFor="firstName">First name</label>
@@ -120,7 +152,7 @@ export const UserSaveForm = ({
                             </div>
                         </div>
                         <div id="form-actions">
-                            <button id="action-save" className="btn" type="submit">Save</button>
+                            <button id="action-save" className="btn" type="submit" >Save</button>
                             <button id="action-cancel" className="btn" type="button" onClick={closeSaveModalUser}>
                                 Cancel
                             </button>

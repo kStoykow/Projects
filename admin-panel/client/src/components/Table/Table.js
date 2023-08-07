@@ -101,7 +101,7 @@ export const Table = () => {
 
             {isCreateModal && <UserSaveForm setIsCreateModal={setIsCreateModal} isCreate={true} setUsers={setUsers} />}
             {userIdEditModal && <UserSaveForm setUserIdEditModal={setUserIdEditModal} isCreate={false} setUsers={setUsers} />}
-            {userIdInfoModal && <UserDetails setUserIdInfoModal={setUserIdInfoModal} />}
+            {userIdInfoModal && <UserDetails {...userIdInfoModal} setUserIdInfoModal={setUserIdInfoModal} />}
             {userIdDeleteModal && <DeleteUserModal id={userIdDeleteModal} setUsers={setUsers} setUserIdDeleteModal={setUserIdDeleteModal} />}
         </>
     );

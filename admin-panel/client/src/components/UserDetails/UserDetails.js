@@ -1,6 +1,20 @@
+import { dateFormater } from "../../utils/dateFormatter";
+
 export const UserDetails = ({
+    _id,
+    imageUrl,
+    firstName,
+    lastName,
+    email,
+    address,
+    phoneNumber,
+    createdAt,
+    updatedAt,
     setUserIdInfoModal,
+    setUserIdDeleteModal,
+    setUserIdEditModal
 }) => {
+
 
     const closeInfoModal = () => {
         setUserIdInfoModal(false);
@@ -28,20 +42,20 @@ export const UserDetails = ({
                                 className="image" />
                         </div>
                         <div className="user-details">
-                            <p>User Id: <strong>62bb0c0eda039e2fdccba57b</strong></p>
+                            <p>User Id: <strong>{_id}</strong></p>
                             <p>
                                 Full Name:
-                                <strong> Peter Johnson </strong>
+                                <strong> {firstName} {lastName} </strong>
                             </p>
-                            <p>Email: <strong>peter@abv.bg</strong></p>
-                            <p>Phone Number: <strong>0812345678</strong></p>
+                            <p>Email: <strong>{email}</strong></p>
+                            <p>Phone Number: <strong>{phoneNumber}</strong></p>
                             <p>
                                 Address:
-                                <strong> Bulgaria, Sofia, Aleksandar Malinov 78 </strong>
+                                <strong> {address.country}, {address.city}, {address.street} {address.streetNumber} </strong>
                             </p>
 
-                            <p>Created on: <strong>Wednesday, June 28, 2022</strong></p>
-                            <p>Modified on: <strong>Thursday, June 29, 2022</strong></p>
+                            <p>Created on: <strong>{dateFormater(createdAt)}</strong></p>
+                            <p>Modified on: <strong>{dateFormater(updatedAt)}</strong></p>
                         </div>
                     </div>
                 </div>

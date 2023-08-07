@@ -1,11 +1,23 @@
+const baseUrl = 'http://localhost:3005/api/users';
 
 export const DeleteUserModal = ({
     id,
+    setUsers,
     setUserIdDeleteModal
 }) => {
 
     const onUserDelete = () => {
-        console.log(id);
+        fetch(baseUrl + `/${id}`, {
+            method: 'delete',
+            headers: { 'content-type': 'application/json' }
+        })
+            .then(res => {
+                if (res.ok) {
+                    setUserIdDeleteModal(false);
+                    setUsers(state => state.filter(e => e._id !== id));
+                }
+            });
+
     }
 
     const closeDeleteModal = () => {

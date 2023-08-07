@@ -4,9 +4,6 @@ import { Header } from "./components/Header/Header";
 import { Search } from "./components/Search/Search";
 import { Table } from "./components/Table/Table";
 import { Pagination } from "./components/Pagination/Pagination";
-import { UserDetails } from "./components/UserDetails/UserDetails";
-import { UserSaveForm } from "./components/UserSaveForm/UserSaveForm";
-import { DeleteUserModal } from "./components/DeleteUserModal/DeleteUserModal";
 import { Footer } from "./components/Footer/Footer";
 
 
@@ -20,10 +17,6 @@ function App() {
 					<Table />
 					<Pagination />
 				</section >
-
-				{/* <UserDetails /> */}
-				{/* <UserSaveForm/>  create/edit */}
-				{/* <DeleteUserModal /> */}
 			</main >
 			<Footer />
 		</>

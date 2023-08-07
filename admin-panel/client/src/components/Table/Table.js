@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 
 import { UserRow } from "./UserRow";
+import { DeleteUserModal } from "../DeleteUserModal/DeleteUserModal";
+import { UserDetails } from "../UserDetails/UserDetails";
 import { NoUsersIcon } from '../FeedbackIcons/NoUsersIcon/NoUsersIcon';
 import { UserSaveForm } from '../UserSaveForm/UserSaveForm';
 
@@ -9,6 +11,9 @@ const baseUrl = 'http://localhost:3005/api/users';
 export const Table = () => {
     const [users, setUsers] = useState([]);
     const [isCreateModal, setIsCreateModal] = useState(false);
+    const [isInfoModal, setIsInfoModal] = useState(false);
+    const [isDeleteUserModal, setIsDeleteUserModal] = useState(false);
+    const [isEditUserModal, setIsEditUserModal] = useState(false);
 
     useEffect(() => {
         fetch(baseUrl)
@@ -16,8 +21,6 @@ export const Table = () => {
             .then(data => data.users)
             .then(users => setUsers(users));
     }, []);
-
-
 
     const openSaveUserModalHandler = () => {
         setIsCreateModal(true);
@@ -27,9 +30,9 @@ export const Table = () => {
     return (
         <>
             <div className="table-wrapper">
-                <div className="loading-shade">
-                    {users.length === 0 && <NoUsersIcon />}
-                </div>
+
+                {users.length === 0 && <div className="loading-shade"><NoUsersIcon /> </div>}
+
 
                 <table className="table">
                     <thead>
@@ -87,12 +90,16 @@ export const Table = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {users.length > 0 && users.map(e => <UserRow user={e} key={e._id} />)}
+                        {users.length > 0 && users.map(e => <UserRow key={e._id} {...e} setIsInfoModal={setIsInfoModal} setIsDeleteUserModal={setIsDeleteUserModal} setIsEditUserModal={setIsEditUserModal} />)}
                     </tbody>
                 </table>
             </div>
             <button className="btn-add btn" onClick={() => openSaveUserModalHandler()}>Add new user</button>
-            {isCreateModal && <UserSaveForm setIsCreateModal={setIsCreateModal} setUsers={setUsers} />}
+            {isCreateModal && <UserSaveForm setIsCreateModal={setIsCreateModal} setIsEditUserModal={setIsEditUserModal} setUsers={setUsers} />}
+            {isInfoModal && <UserDetails setIsInfoModal={setIsInfoModal} />}
+            {isDeleteUserModal && <DeleteUserModal setIsDeleteUserModal={setIsDeleteUserModal} />}
+            {isEditUserModal && <UserSaveForm setIsCreateModal={setIsCreateModal} setIsEditUserModal={setIsEditUserModal} />}
+
         </>
     );
 }

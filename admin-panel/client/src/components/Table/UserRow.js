@@ -1,18 +1,43 @@
-export const UserRow = ({ user }) => {
+
+export const UserRow = ({
+    imageUrl,
+    firstName,
+    lastName,
+    email,
+    phoneNumber,
+    createdAt,
+    setIsInfoModal,
+    setIsDeleteUserModal,
+    setIsEditUserModal
+
+}) => {
+
+    const onUserInfoClick = () => {
+        setIsInfoModal(true);
+    }
+
+    const onUserDeleteClick = () => {
+        setIsDeleteUserModal(true);
+    }
+    
+    const onUserEditClick = () => {
+        setIsEditUserModal(true);
+    }
+
     return (
         <tr>
             <td>
-                <img src={user.imageUrl}
-                    alt={`${user.firstName}'s profile`} className="image" />
+                <img src={imageUrl}
+                    alt={`${firstName}'s profile`} className="image" />
             </td>
-            <td>{user.firstName}</td>
-            <td>{user.lastName}</td>
-            <td>{user.email}</td>
-            <td>{user.phoneNumber}</td>
-            <td>{user.createdAt}</td>
+            <td>{firstName}</td>
+            <td>{lastName}</td>
+            <td>{email}</td>
+            <td>{phoneNumber}</td>
+            <td>{createdAt}</td>
 
             <td className="actions">
-                <button className="btn edit-btn" title="Edit">
+                <button className="btn edit-btn" title="Edit" onClick={onUserEditClick}>
                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pen-to-square"
                         className="svg-inline--fa fa-pen-to-square" role="img" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 532 512">
@@ -21,7 +46,7 @@ export const UserRow = ({ user }) => {
                         </path>
                     </svg>
                 </button>
-                <button className="btn delete-btn" title="Delete">
+                <button className="btn delete-btn" title="Delete" onClick={onUserDeleteClick}>
                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash"
                         className="svg-inline--fa fa-trash" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 498 512">
                         <path fill="currentColor"
@@ -29,7 +54,7 @@ export const UserRow = ({ user }) => {
                         </path>
                     </svg>
                 </button>
-                <button className="btn info-btn" title="Info">
+                <button className="btn info-btn" title="Info" onClick={onUserInfoClick}>
                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info"
                         className="svg-inline--fa fa-info" role="img" xmlns="http://www.w3.org/2000/svg"
                         viewBox="-150 0 512 612">

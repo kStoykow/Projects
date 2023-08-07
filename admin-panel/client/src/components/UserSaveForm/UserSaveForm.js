@@ -4,6 +4,7 @@ const baseUrl = 'http://localhost:3005/api/users';
 
 export const UserSaveForm = ({
     setIsCreateModal,
+    setIsEditUserModal,
     setUsers
 }) => {
     const [firstName, setFirstName] = useState('');
@@ -24,16 +25,16 @@ export const UserSaveForm = ({
         e.preventDefault();
 
         const body = {
-            firstName: "Pesho",
-            lastName: "Ivanov",
-            email: "qqqqq@abv.bg",
-            imageUrl: "https://qwewq/q.weq",
-            phoneNumber: "0123456789",
+            firstName,
+            lastName,
+            email,
+            imageUrl,
+            phoneNumber,
             address: {
-                country: "BulGaria",
-                city: "Radnewo",
-                street: "Main",
-                streetNumber: 3,
+                country,
+                city,
+                street,
+                streetNumber
             }
         };
 
@@ -47,12 +48,11 @@ export const UserSaveForm = ({
         })
             .then(res => res.json())
             .then(user => setUsers(users => [...users, user]));
-
-        //to finish
     }
 
     const closeSaveModalUser = () => {
         setIsCreateModal(false);
+        setIsEditUserModal(false);
     }
 
     return (

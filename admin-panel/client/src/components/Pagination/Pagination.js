@@ -1,9 +1,17 @@
+import { useState } from "react";
+
 export const Pagination = () => {
+    const [pages, setPages] = useState('5');
+
+    const onChangeHandler = (e, callback) => {
+        callback(e.target.value);
+    }
+
     return (
         <div className="pagination position">
             <div className="limits">
                 <span>Items per page:</span>
-                <select name="limit" className="limit" value="5">
+                <select name="limit" className="limit" value={pages} onChange={e => onChangeHandler(e, setPages)}>
                     <option value="5">5</option>
                     <option value="5">10</option>
                     <option value="5">15</option>
@@ -48,6 +56,6 @@ export const Pagination = () => {
                     </svg>
                 </button>
             </div>
-        </div>
+        </div >
     );
 }

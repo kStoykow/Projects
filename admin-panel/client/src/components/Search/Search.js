@@ -10,7 +10,7 @@ export const Search = () => {
 
     const searchSubmitHandler = (e) => {
         e.preventDefault();
-        console.log('qwe');
+        console.log('search'); //TODO: FINISH SEARCH
     }
 
     return (

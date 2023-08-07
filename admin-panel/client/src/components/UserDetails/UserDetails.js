@@ -1,9 +1,9 @@
 export const UserDetails = ({
-    setIsInfoModal,
+    setUserIdInfoModal,
 }) => {
 
     const closeInfoModal = () => {
-        setIsInfoModal(false);
+        setUserIdInfoModal(false);
     }
 
     return (

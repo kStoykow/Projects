@@ -11,9 +11,9 @@ const baseUrl = 'http://localhost:3005/api/users';
 export const Table = () => {
     const [users, setUsers] = useState([]);
     const [isCreateModal, setIsCreateModal] = useState(false);
-    const [isInfoModal, setIsInfoModal] = useState(false);
-    const [isDeleteUserModal, setIsDeleteUserModal] = useState(false);
-    const [isEditUserModal, setIsEditUserModal] = useState(false);
+    const [userIdInfoModal, setUserIdInfoModal] = useState(false);
+    const [userIdDeleteModal, setUserIdDeleteModal] = useState(false);
+    const [userIdEditModal, setUserIdEditModal] = useState(false);
 
     useEffect(() => {
         fetch(baseUrl)
@@ -30,9 +30,7 @@ export const Table = () => {
     return (
         <>
             <div className="table-wrapper">
-
                 {users.length === 0 && <div className="loading-shade"><NoUsersIcon /> </div>}
-
 
                 <table className="table">
                     <thead>
@@ -90,16 +88,21 @@ export const Table = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {users.length > 0 && users.map(e => <UserRow key={e._id} {...e} setIsInfoModal={setIsInfoModal} setIsDeleteUserModal={setIsDeleteUserModal} setIsEditUserModal={setIsEditUserModal} />)}
+                        {users.length > 0 && users.map(e => <UserRow
+                            key={e._id}
+                            {...e}
+                            setUserIdInfoModal={setUserIdInfoModal}
+                            setUserIdDeleteModal={setUserIdDeleteModal}
+                            setUserIdEditModal={setUserIdEditModal} />)}
                     </tbody>
                 </table>
             </div>
             <button className="btn-add btn" onClick={() => openSaveUserModalHandler()}>Add new user</button>
-            {isCreateModal && <UserSaveForm setIsCreateModal={setIsCreateModal} setIsEditUserModal={setIsEditUserModal} setUsers={setUsers} />}
-            {isInfoModal && <UserDetails setIsInfoModal={setIsInfoModal} />}
-            {isDeleteUserModal && <DeleteUserModal setIsDeleteUserModal={setIsDeleteUserModal} />}
-            {isEditUserModal && <UserSaveForm setIsCreateModal={setIsCreateModal} setIsEditUserModal={setIsEditUserModal} />}
 
+            {isCreateModal && <UserSaveForm setIsCreateModal={setIsCreateModal} isCreate={true} setUsers={setUsers} />}
+            {userIdEditModal && <UserSaveForm setUserIdEditModal={setUserIdEditModal} isCreate={false} setUsers={setUsers} />}
+            {userIdInfoModal && <UserDetails setUserIdInfoModal={setUserIdInfoModal} />}
+            {userIdDeleteModal && <DeleteUserModal id={userIdDeleteModal} setUserIdDeleteModal={setUserIdDeleteModal} />}
         </>
     );
 }

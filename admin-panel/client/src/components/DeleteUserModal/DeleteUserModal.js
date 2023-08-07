@@ -1,14 +1,15 @@
 
 export const DeleteUserModal = ({
-    setIsDeleteUserModal
+    id,
+    setUserIdDeleteModal
 }) => {
 
     const onUserDelete = () => {
-
+        console.log(id);
     }
 
     const closeDeleteModal = () => {
-        setIsDeleteUserModal(false);
+        setUserIdDeleteModal(false);
     }
 
     return (

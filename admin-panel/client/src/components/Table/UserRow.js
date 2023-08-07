@@ -1,27 +1,28 @@
 
 export const UserRow = ({
+    _id,
     imageUrl,
     firstName,
     lastName,
     email,
     phoneNumber,
     createdAt,
-    setIsInfoModal,
-    setIsDeleteUserModal,
-    setIsEditUserModal
+    setUserIdInfoModal,
+    setUserIdDeleteModal,
+    setUserIdEditModal
 
 }) => {
 
     const onUserInfoClick = () => {
-        setIsInfoModal(true);
+        setUserIdInfoModal(true);
     }
 
-    const onUserDeleteClick = () => {
-        setIsDeleteUserModal(true);
+    const onUserDeleteClick = (_id) => {
+        setUserIdDeleteModal(_id);
     }
-    
+
     const onUserEditClick = () => {
-        setIsEditUserModal(true);
+        setUserIdEditModal(true);
     }
 
     return (
@@ -46,7 +47,7 @@ export const UserRow = ({
                         </path>
                     </svg>
                 </button>
-                <button className="btn delete-btn" title="Delete" onClick={onUserDeleteClick}>
+                <button className="btn delete-btn" title="Delete" onClick={e => onUserDeleteClick(_id)}>
                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash"
                         className="svg-inline--fa fa-trash" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 498 512">
                         <path fill="currentColor"

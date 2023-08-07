@@ -1,6 +1,20 @@
+import { useState } from "react";
+
 export const Search = () => {
+    const [select, setSelect] = useState('not-selected');
+    const [search, setSearch] = useState('');
+
+    const onChangeHandler = (e, callback) => {
+        callback(e.target.value);
+    }
+
+    const searchSubmitHandler = (e) => {
+        e.preventDefault();
+        console.log('qwe');
+    }
+
     return (
-        <form className="search-form">
+        <form className="search-form" onSubmit={e => searchSubmitHandler(e)}>
             <h2>
                 <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user"
                     className="svg-inline--fa fa-user SearchBar_icon__cXpTg" role="img" xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +26,7 @@ export const Search = () => {
                 <span>Users</span>
             </h2>
             <div className="search-input-container">
-                <input type="text" placeholder="Please, select the search criteria" name="search" />
+                <input type="text" placeholder="Please, select the search criteria" name="search" value={search} onChange={e => onChangeHandler(e, setSearch)} />
                 {/* <!-- Show the clear button only if input field length !== 0 --> */}
                 <button className="btn close-btn">
                     <i className="fa-solid fa-xmark"></i>
@@ -25,14 +39,14 @@ export const Search = () => {
 
             <div className="filter">
                 <span>Search Criteria:</span>
-                <select name="criteria" className="criteria" value="">
-                    <option value="">Not selected</option>
-                    <option value="">First Name</option>
-                    <option value="">Last Name</option>
-                    <option value="">Email</option>
-                    <option value="">Phone</option>
+                <select name="criteria" className="criteria" value={select} onChange={e => onChangeHandler(e, setSelect)}>
+                    <option value="not-selected">Not selected</option>
+                    <option value="first-name">First Name</option>
+                    <option value="last-name">Last Name</option>
+                    <option value="email">Email</option>
+                    <option value="phone">Phone</option>
                 </select>
             </div>
-        </form>
+        </form >
     );
 }

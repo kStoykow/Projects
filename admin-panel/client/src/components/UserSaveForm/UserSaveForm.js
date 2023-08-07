@@ -1,35 +1,52 @@
+import { useState } from 'react';
 
 const baseUrl = 'http://localhost:3005/api/users';
 
 export const UserSaveForm = ({
-    setIsCreateModal
+    setIsCreateModal,
+    setUsers
 }) => {
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
+    const [imageUrl, setImageUrl] = useState('');
+    const [country, setCountry] = useState('');
+    const [city, setCity] = useState('');
+    const [street, setStreet] = useState('');
+    const [streetNumber, setStreetNumber] = useState('');
+
+    const onChangeHandler = (e, callback) => {
+        callback(e.target.value);
+    }
 
     const addUserHandler = (e) => {
         e.preventDefault();
+
         const body = {
-            firstName: "Ivan",
-            lastName: "Aasdd",
-            email: "string@qcfvwe.qweqw",
+            firstName: "Pesho",
+            lastName: "Ivanov",
+            email: "qqqqq@abv.bg",
             imageUrl: "https://qwewq/q.weq",
             phoneNumber: "0123456789",
             address: {
-                country: "stssa",
-                city: "qweqqq",
-                street: "qwmain",
-                streetNumber: 5,
+                country: "BulGaria",
+                city: "Radnewo",
+                street: "Main",
+                streetNumber: 3,
             }
         };
 
 
-        console.log(body);
-
         fetch(baseUrl, {
-            method: 'post',
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
             body: JSON.stringify(body)
         })
             .then(res => res.json())
-            .then(console.log)
+            .then(user => setUsers(users => [...users, user]));
 
         //to finish
     }
@@ -60,7 +77,7 @@ export const UserSaveForm = ({
                                 <label htmlFor="firstName">First name</label>
                                 <div className="input-wrapper">
                                     <span><i className="fa-solid fa-user"></i></span>
-                                    <input id="firstName" name="firstName" type="text" />
+                                    <input id="firstName" name="firstName" type="text" value={firstName} onChange={e => onChangeHandler(e, setFirstName)} />
                                 </div>
                                 <p className="form-error">
                                     First name should be at least 3 characters long!
@@ -70,7 +87,7 @@ export const UserSaveForm = ({
                                 <label htmlFor="lastName">Last name</label>
                                 <div className="input-wrapper">
                                     <span><i className="fa-solid fa-user"></i></span>
-                                    <input id="lastName" name="lastName" type="text" />
+                                    <input id="lastName" name="lastName" type="text" value={lastName} onChange={e => onChangeHandler(e, setLastName)} />
                                 </div>
                                 <p className="form-error">
                                     Last name should be at least 3 characters long!
@@ -83,7 +100,7 @@ export const UserSaveForm = ({
                                 <label htmlFor="email">Email</label>
                                 <div className="input-wrapper">
                                     <span><i className="fa-solid fa-envelope"></i></span>
-                                    <input id="email" name="email" type="text" />
+                                    <input id="email" name="email" type="text" value={email} onChange={e => onChangeHandler(e, setEmail)} />
                                 </div>
                                 <p className="form-error">Email is not valid!</p>
                             </div>
@@ -91,7 +108,7 @@ export const UserSaveForm = ({
                                 <label htmlFor="phoneNumber">Phone number</label>
                                 <div className="input-wrapper">
                                     <span><i className="fa-solid fa-phone"></i></span>
-                                    <input id="phoneNumber" name="phoneNumber" type="text" />
+                                    <input id="phoneNumber" name="phoneNumber" type="text" value={phoneNumber} onChange={e => onChangeHandler(e, setPhoneNumber)} />
                                 </div>
                                 <p className="form-error">Phone number is not valid!</p>
                             </div>
@@ -101,7 +118,7 @@ export const UserSaveForm = ({
                             <label htmlFor="imageUrl">Image Url</label>
                             <div className="input-wrapper">
                                 <span><i className="fa-solid fa-image"></i></span>
-                                <input id="imageUrl" name="imageUrl" type="text" />
+                                <input id="imageUrl" name="imageUrl" type="text" value={imageUrl} onChange={e => onChangeHandler(e, setImageUrl)} />
                             </div>
                             <p className="form-error">ImageUrl is not valid!</p>
                         </div>
@@ -111,7 +128,7 @@ export const UserSaveForm = ({
                                 <label htmlFor="country">Country</label>
                                 <div className="input-wrapper">
                                     <span><i className="fa-solid fa-map"></i></span>
-                                    <input id="country" name="country" type="text" />
+                                    <input id="country" name="country" type="text" value={country} onChange={e => onChangeHandler(e, setCountry)} />
                                 </div>
                                 <p className="form-error">
                                     Country should be at least 2 characters long!
@@ -121,7 +138,7 @@ export const UserSaveForm = ({
                                 <label htmlFor="city">City</label>
                                 <div className="input-wrapper">
                                     <span><i className="fa-solid fa-city"></i></span>
-                                    <input id="city" name="city" type="text" />
+                                    <input id="city" name="city" type="text" value={city} onChange={e => onChangeHandler(e, setCity)} />
                                 </div>
                                 <p className="form-error">
                                     City should be at least 3 characters long!
@@ -134,7 +151,7 @@ export const UserSaveForm = ({
                                 <label htmlFor="street">Street</label>
                                 <div className="input-wrapper">
                                     <span><i className="fa-solid fa-map"></i></span>
-                                    <input id="street" name="street" type="text" />
+                                    <input id="street" name="street" type="text" value={street} onChange={e => onChangeHandler(e, setStreet)} />
                                 </div>
                                 <p className="form-error">
                                     Street should be at least 3 characters long!
@@ -144,7 +161,7 @@ export const UserSaveForm = ({
                                 <label htmlFor="streetNumber">Street number</label>
                                 <div className="input-wrapper">
                                     <span><i className="fa-solid fa-house-chimney"></i></span>
-                                    <input id="streetNumber" name="streetNumber" type="text" />
+                                    <input id="streetNumber" name="streetNumber" type="text" value={streetNumber} onChange={e => onChangeHandler(e, setStreetNumber)} />
                                 </div>
                                 <p className="form-error">
                                     Street number should be a positive number!

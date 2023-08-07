@@ -87,12 +87,12 @@ export const Table = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {users.length > 0 && users.map(e => <UserRow user={e} />)}
+                        {users.length > 0 && users.map(e => <UserRow user={e} key={e._id} />)}
                     </tbody>
                 </table>
             </div>
             <button className="btn-add btn" onClick={() => openSaveUserModalHandler()}>Add new user</button>
-            {isCreateModal && <UserSaveForm setIsCreateModal={setIsCreateModal} />}
+            {isCreateModal && <UserSaveForm setIsCreateModal={setIsCreateModal} setUsers={setUsers} />}
         </>
     );
 }

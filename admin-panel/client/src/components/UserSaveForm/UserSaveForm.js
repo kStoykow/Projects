@@ -7,7 +7,7 @@ export const UserSaveForm = ({
     setIsCreateModal,
     setUserIdEditModal,
     isCreate,
-    setUsers
+    setUsers,
 }) => {
     const [firstName, setFirstName] = useState((isCreate ? '' : user.firstName));
     const [lastName, setLastName] = useState(isCreate ? '' : user.lastName);
@@ -51,7 +51,7 @@ export const UserSaveForm = ({
 
     const editUserHandler = (e, _id) => {
         e.preventDefault(e);
-        console.log(_id);
+
         fetch(baseUrl + `/${_id}`, {
             method: 'PUT',
             headers: {
@@ -94,7 +94,7 @@ export const UserSaveForm = ({
                             </svg>
                         </button>
                     </header>
-                    <form onSubmit={(e) => addUserHandler(e)}>
+                    <form onSubmit={isCreate ? (e) => addUserHandler(e) : (e) => editUserHandler(e, user._id)}>
                         <div className="form-row">
                             <div className="form-group">
                                 <label htmlFor="firstName">First name</label>
@@ -192,7 +192,7 @@ export const UserSaveForm = ({
                             </div>
                         </div>
                         <div id="form-actions">
-                            <button id="action-save" className="btn" type="submit" onClick={e => editUserHandler(e, user._id)}>Save</button>
+                            <button id="action-save" className="btn" type="submit" >Save</button>
                             <button id="action-cancel" className="btn" type="button" onClick={closeModal}>Cancel</button>
                         </div>
                     </form>

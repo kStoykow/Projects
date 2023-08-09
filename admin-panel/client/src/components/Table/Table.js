@@ -26,7 +26,6 @@ export const Table = () => {
         setIsCreateModal(true);
     }
 
-
     return (
         <>
             <div className="table-wrapper">
@@ -87,14 +86,19 @@ export const Table = () => {
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {users.length > 0 && users.map(e => <UserRow
-                            key={e._id}
-                            {...e}
-                            setUserIdInfoModal={setUserIdInfoModal}
-                            setUserIdDeleteModal={setUserIdDeleteModal}
-                            setUserIdEditModal={setUserIdEditModal} />)}
-                    </tbody>
+
+                    {
+                        users &&
+                        <tbody>
+                            {users.map(e => <UserRow
+                                key={e._id}
+                                {...e}
+                                setUserIdInfoModal={setUserIdInfoModal}
+                                setUserIdDeleteModal={setUserIdDeleteModal}
+                                setUserIdEditModal={setUserIdEditModal} />)}
+                        </tbody>
+                    }
+
                 </table>
             </div>
             <button className="btn-add btn" onClick={() => openSaveUserModalHandler()}>Add new user</button>
@@ -106,3 +110,5 @@ export const Table = () => {
         </>
     );
 }
+
+

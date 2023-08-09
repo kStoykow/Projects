@@ -1,13 +1,12 @@
 import { useState } from 'react';
 
-const baseUrl = 'http://localhost:3005/api/users';
-
 export const UserSaveForm = ({
     user,
     setIsCreateModal,
     setUserIdEditModal,
     isCreate,
-    setUsers,
+    editUserHandler,
+    addUserHandler
 }) => {
     const [firstName, setFirstName] = useState((isCreate ? '' : user.firstName));
     const [lastName, setLastName] = useState(isCreate ? '' : user.lastName);
@@ -23,57 +22,6 @@ export const UserSaveForm = ({
         callback(e.target.value);
     }
 
-    const addUserHandler = (e) => {
-        e.preventDefault();
-
-        fetch(baseUrl, {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify({
-                firstName,
-                lastName,
-                email,
-                imageUrl,
-                phoneNumber,
-                address: {
-                    country,
-                    city,
-                    street,
-                    streetNumber
-                }
-            })
-        })
-            .then(res => res.json())
-            .then(user => setUsers(users => [...users, user]));
-    }
-
-    const editUserHandler = (e, _id) => {
-        e.preventDefault(e);
-
-        fetch(baseUrl + `/${_id}`, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify({
-                firstName,
-                lastName,
-                email,
-                imageUrl,
-                phoneNumber,
-                address: {
-                    country,
-                    city,
-                    street,
-                    streetNumber
-                }
-            })
-        })
-            .then(res => res.json())
-            .then(updatedUser => setUsers(state => state.map(e => e._id === user._id ? updatedUser : e)));
-    }
     const closeModal = () => {
         isCreate ? setIsCreateModal(false) : setUserIdEditModal(false);
     }
@@ -94,7 +42,32 @@ export const UserSaveForm = ({
                             </svg>
                         </button>
                     </header>
-                    <form onSubmit={isCreate ? (e) => addUserHandler(e) : (e) => editUserHandler(e, user._id)}>
+                    <form onSubmit={isCreate ? (e) => addUserHandler(e, {
+                        firstName,
+                        lastName,
+                        email,
+                        imageUrl,
+                        phoneNumber,
+                        address: {
+                            country,
+                            city,
+                            street,
+                            streetNumber
+                        }
+                    }) : (e) => editUserHandler(e, {
+                        _id: user._id,
+                        firstName,
+                        lastName,
+                        email,
+                        imageUrl,
+                        phoneNumber,
+                        address: {
+                            country,
+                            city,
+                            street,
+                            streetNumber
+                        }
+                    })}>
                         <div className="form-row">
                             <div className="form-group">
                                 <label htmlFor="firstName">First name</label>

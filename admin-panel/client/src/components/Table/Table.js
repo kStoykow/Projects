@@ -6,6 +6,7 @@ import { UserDetails } from "../UserDetails/UserDetails";
 import { NoUsersIcon } from '../FeedbackIcons/NoUsersIcon/NoUsersIcon';
 import { UserSaveForm } from '../UserSaveForm/UserSaveForm';
 
+import * as userService from '../../services/userService';
 const baseUrl = 'http://localhost:3005/api/users';
 
 export const Table = () => {
@@ -14,13 +15,28 @@ export const Table = () => {
     const [userIdInfoModal, setUserIdInfoModal] = useState(false);
     const [userIdDeleteModal, setUserIdDeleteModal] = useState(false);
     const [userIdEditModal, setUserIdEditModal] = useState(false);
-
     useEffect(() => {
         fetch(baseUrl)
             .then(res => res.json())
             .then(data => data.users)
             .then(users => setUsers(users));
     }, []);
+
+    const addUserHandler = async (e, body) => {
+        e.preventDefault();
+        const newUser = await userService.create(body);
+
+        setUsers(state => [...state, newUser]);
+        setIsCreateModal(false);
+    }
+
+    const editUserHandler = async (e, body) => {
+        e.preventDefault();
+
+        const updatedUser = await userService.edit(body);
+        setUsers(state => state.map(e => e._id === updatedUser._id ? updatedUser : e));
+        setUserIdEditModal(false);
+    }
 
     const openSaveUserModalHandler = () => {
         setIsCreateModal(true);
@@ -103,8 +119,8 @@ export const Table = () => {
             </div>
             <button className="btn-add btn" onClick={() => openSaveUserModalHandler()}>Add new user</button>
 
-            {isCreateModal && <UserSaveForm setIsCreateModal={setIsCreateModal} isCreate={true} setUsers={setUsers} />}
-            {userIdEditModal && <UserSaveForm user={userIdEditModal} setUserIdEditModal={setUserIdEditModal} isCreate={false} setUsers={setUsers} />}
+            {isCreateModal && <UserSaveForm setIsCreateModal={setIsCreateModal} isCreate={true} addUserHandler={addUserHandler} />}
+            {userIdEditModal && <UserSaveForm user={userIdEditModal} setUserIdEditModal={setUserIdEditModal} isCreate={false} editUserHandler={editUserHandler} />}
             {userIdInfoModal && <UserDetails {...userIdInfoModal} setUserIdInfoModal={setUserIdInfoModal} />}
             {userIdDeleteModal && <DeleteUserModal id={userIdDeleteModal} setUsers={setUsers} setUserIdDeleteModal={setUserIdDeleteModal} />}
         </>

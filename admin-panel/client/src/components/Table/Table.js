@@ -100,7 +100,7 @@ export const Table = () => {
             <button className="btn-add btn" onClick={() => openSaveUserModalHandler()}>Add new user</button>
 
             {isCreateModal && <UserSaveForm setIsCreateModal={setIsCreateModal} isCreate={true} setUsers={setUsers} />}
-            {userIdEditModal && <UserSaveForm setUserIdEditModal={setUserIdEditModal} isCreate={false} setUsers={setUsers} />}
+            {userIdEditModal && <UserSaveForm user={userIdEditModal} setUserIdEditModal={setUserIdEditModal} isCreate={false} setUsers={setUsers} />}
             {userIdInfoModal && <UserDetails {...userIdInfoModal} setUserIdInfoModal={setUserIdInfoModal} />}
             {userIdDeleteModal && <DeleteUserModal id={userIdDeleteModal} setUsers={setUsers} setUserIdDeleteModal={setUserIdDeleteModal} />}
         </>

@@ -26,7 +26,9 @@ export const UserRow = ({
     }
 
     const onUserEditClick = (_id) => {
-        setUserIdEditModal(true);
+        fetch(baseUrl + `/${_id}`)
+            .then(res => res.json())
+            .then(res => setUserIdEditModal(res.user));
     }
 
     return (

@@ -3,20 +3,21 @@ import { useState } from 'react';
 const baseUrl = 'http://localhost:3005/api/users';
 
 export const UserSaveForm = ({
+    user,
     setIsCreateModal,
     setUserIdEditModal,
     isCreate,
     setUsers
 }) => {
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [email, setEmail] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('');
-    const [imageUrl, setImageUrl] = useState('');
-    const [country, setCountry] = useState('');
-    const [city, setCity] = useState('');
-    const [street, setStreet] = useState('');
-    const [streetNumber, setStreetNumber] = useState('');
+    const [firstName, setFirstName] = useState((isCreate ? '' : user.firstName));
+    const [lastName, setLastName] = useState(isCreate ? '' : user.lastName);
+    const [email, setEmail] = useState(isCreate ? '' : user.email);
+    const [phoneNumber, setPhoneNumber] = useState(isCreate ? '' : user.phoneNumber);
+    const [imageUrl, setImageUrl] = useState(isCreate ? '' : user.imageUrl);
+    const [country, setCountry] = useState(isCreate ? '' : user.address.country);
+    const [city, setCity] = useState(isCreate ? '' : user.address.city);
+    const [street, setStreet] = useState(isCreate ? '' : user.address.street);
+    const [streetNumber, setStreetNumber] = useState(isCreate ? '' : user.address.streetNumber);
 
     const onChangeHandler = (e, callback) => {
         callback(e.target.value);
@@ -25,32 +26,54 @@ export const UserSaveForm = ({
     const addUserHandler = (e) => {
         e.preventDefault();
 
-        const body = {
-            firstName,
-            lastName,
-            email,
-            imageUrl,
-            phoneNumber,
-            address: {
-                country,
-                city,
-                street,
-                streetNumber
-            }
-        };
-
-
         fetch(baseUrl, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(body)
+            body: JSON.stringify({
+                firstName,
+                lastName,
+                email,
+                imageUrl,
+                phoneNumber,
+                address: {
+                    country,
+                    city,
+                    street,
+                    streetNumber
+                }
+            })
         })
             .then(res => res.json())
             .then(user => setUsers(users => [...users, user]));
     }
 
+    const editUserHandler = (e, _id) => {
+        e.preventDefault(e);
+        console.log(_id);
+        fetch(baseUrl + `/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                firstName,
+                lastName,
+                email,
+                imageUrl,
+                phoneNumber,
+                address: {
+                    country,
+                    city,
+                    street,
+                    streetNumber
+                }
+            })
+        })
+            .then(res => res.json())
+            .then(updatedUser => setUsers(state => state.map(e => e._id === user._id ? updatedUser : e)));
+    }
     const closeModal = () => {
         isCreate ? setIsCreateModal(false) : setUserIdEditModal(false);
     }
@@ -169,10 +192,8 @@ export const UserSaveForm = ({
                             </div>
                         </div>
                         <div id="form-actions">
-                            <button id="action-save" className="btn" type="submit" >Save</button>
-                            <button id="action-cancel" className="btn" type="button" onClick={closeModal}>
-                                Cancel
-                            </button>
+                            <button id="action-save" className="btn" type="submit" onClick={e => editUserHandler(e, user._id)}>Save</button>
+                            <button id="action-cancel" className="btn" type="button" onClick={closeModal}>Cancel</button>
                         </div>
                     </form>
                 </div>

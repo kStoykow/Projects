@@ -18,6 +18,23 @@ export const UserSaveForm = ({
     const [street, setStreet] = useState(isCreate ? '' : user.address.street);
     const [streetNumber, setStreetNumber] = useState(isCreate ? '' : user.address.streetNumber);
 
+    const [validate, setValidate] = useState({
+        firstName: '',
+        lastName: ''
+    });
+
+    const labelsMap = {
+        'firstName': 'First name',
+        'lastName': 'Last name'
+    }
+    const namesValidateHandler = (e) => {
+        if (e.target.value.length < 3) {
+            setValidate(errors => ({ ...errors, [e.target.name]: `${labelsMap[e.target.name]} should be at least 3 characters long!` }));
+        } else {
+            setValidate(errors => ({ ...errors, [e.target.name]: '' }));
+        }
+    }
+
     const onChangeHandler = (e, callback) => {
         callback(e.target.value);
     }
@@ -73,21 +90,29 @@ export const UserSaveForm = ({
                                 <label htmlFor="firstName">First name</label>
                                 <div className="input-wrapper">
                                     <span><i className="fa-solid fa-user"></i></span>
-                                    <input id="firstName" name="firstName" type="text" value={firstName} onChange={e => onChangeHandler(e, setFirstName)} />
+                                    <input id="firstName"
+                                        name="firstName"
+                                        type="text"
+                                        value={firstName}
+                                        onChange={e => onChangeHandler(e, setFirstName)}
+                                        onBlur={e => namesValidateHandler(e)} />
                                 </div>
                                 <p className="form-error">
-                                    First name should be at least 3 characters long!
+                                    {validate.firstName && validate.firstName}
                                 </p>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="lastName">Last name</label>
                                 <div className="input-wrapper">
                                     <span><i className="fa-solid fa-user"></i></span>
-                                    <input id="lastName" name="lastName" type="text" value={lastName} onChange={e => onChangeHandler(e, setLastName)} />
+                                    <input id="lastName"
+                                        name="lastName"
+                                        type="text"
+                                        value={lastName}
+                                        onChange={e => onChangeHandler(e, setLastName)}
+                                        onBlur={e => namesValidateHandler(e)} />
                                 </div>
-                                <p className="form-error">
-                                    Last name should be at least 3 characters long!
-                                </p>
+                                {validate.lastName && <p className="form-error">{validate.lastName}</p>}
                             </div>
                         </div>
 
